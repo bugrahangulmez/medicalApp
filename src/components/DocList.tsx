@@ -12,6 +12,8 @@ import {SCREEN_WIDTH, scaleHeight, scaleWidth} from '../constants/scale';
 import {COLORS, FONTS} from '../constants/constants';
 import DocStarSvg from '../svg/DocStarSvg';
 import LikeIconSvg from '../svg/LikeIconSvg';
+import {useAppDispatch, useAppSelector} from '../redux/hooks';
+import {toggleFav} from '../redux/features/docSlice';
 
 interface Doctor {
   name: string;
@@ -21,6 +23,9 @@ interface Doctor {
   image: ImageProps;
 }
 const DocList = ({doctors, top}: {doctors: Doctor[]; top: number}) => {
+  const doctorList = useAppSelector(store => store.doctor);
+  const dispatch = useAppDispatch();
+
   return (
     <View style={[styles.container, {top: scaleHeight(top)}]}>
       <FlatList
@@ -41,8 +46,15 @@ const DocList = ({doctors, top}: {doctors: Doctor[]; top: number}) => {
                   }}
                 />
                 <View style={styles.likeIconContainer}>
-                  <TouchableOpacity>
-                    <LikeIconSvg isLiked={true} />
+                  <TouchableOpacity
+                    onPress={() => {
+                      dispatch(toggleFav(item));
+                    }}>
+                    <LikeIconSvg
+                      isLiked={doctorList.list.some(
+                        doc => doc.name === item.name,
+                      )}
+                    />
                   </TouchableOpacity>
                 </View>
               </View>

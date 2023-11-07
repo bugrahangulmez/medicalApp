@@ -11,6 +11,8 @@ import {scaleHeight, scaleWidth} from '../constants/scale';
 import DocStarSvg from '../svg/DocStarSvg';
 import LikeIconSvg from '../svg/LikeIconSvg';
 import {COLORS, FONTS} from '../constants/constants';
+import {useAppDispatch, useAppSelector} from '../redux/hooks';
+import {toggleFav} from '../redux/features/docSlice';
 
 interface Doctor {
   name: string;
@@ -20,14 +22,19 @@ interface Doctor {
   image: ImageProps;
 }
 const TopDoc = ({doctor, top}: {doctor: Doctor; top: number}) => {
+  const dispatch = useAppDispatch();
+  const {list} = useAppSelector(store => store.doctor);
   return (
     <TouchableOpacity style={[styles.container, {top: scaleHeight(top)}]}>
       <Image source={doctor.image} style={styles.image} />
       <View style={styles.docContainer}>
         <View style={styles.nameContainer}>
           <Text style={styles.docName}>{doctor.name}</Text>
-          <TouchableOpacity>
-            <LikeIconSvg isLiked={true} />
+          <TouchableOpacity
+            onPress={() => {
+              dispatch(toggleFav(doctor));
+            }}>
+            <LikeIconSvg isLiked={list.some(doc => doc.name === doctor.name)} />
           </TouchableOpacity>
         </View>
         <Text style={styles.departmentText}>

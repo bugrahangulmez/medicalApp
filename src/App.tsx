@@ -3,18 +3,21 @@ import {Onboarding} from './screens';
 import {NavigationContainer} from '@react-navigation/native';
 import {TabBarNav} from './navigation';
 import {useState} from 'react';
+import ReduxProvider from './redux/Provider';
 
 const App = () => {
   const [status, setStatus] = useState<'active' | 'done'>('active');
   return (
     <NavigationContainer>
-      <SafeAreaProvider>
-        {status === 'active' ? (
-          <Onboarding setStatus={setStatus} />
-        ) : (
-          <TabBarNav />
-        )}
-      </SafeAreaProvider>
+      <ReduxProvider>
+        <SafeAreaProvider>
+          {status === 'active' ? (
+            <Onboarding setStatus={setStatus} />
+          ) : (
+            <TabBarNav />
+          )}
+        </SafeAreaProvider>
+      </ReduxProvider>
     </NavigationContainer>
   );
 };
