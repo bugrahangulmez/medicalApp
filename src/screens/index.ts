@@ -1,0 +1,7 @@
+import Onboarding from './Onboarding';
+import Home from './Home';
+import Appointments from './Appointments';
+import Documents from './Documents';
+import Profile from './Profile';
+
+export {Onboarding, Home, Appointments, Documents, Profile};
