@@ -1,5 +1,6 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import React from 'react';
+import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../constants/scale';
 
 const Appointments = () => {
   return (
@@ -11,4 +12,6 @@ const Appointments = () => {
 
 export default Appointments;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {},
+});
