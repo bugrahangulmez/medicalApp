@@ -12,6 +12,7 @@ import DocumentIconSvg from '../svg/DocumentIconSvg';
 import ProfileIconSvg from '../svg/ProfileIconSvg';
 import CalenderIconSvg from '../svg/CalenderIconSvg';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import AppointmentStack from './AppointmentStack';
 
 type RootTabBarParamList = {
   Home: undefined;
@@ -97,7 +98,7 @@ const TabBarNav = () => {
       screenOptions={{headerShown: false}}
       tabBar={props => <MyTabBar {...props} />}>
       <TabBar.Screen name="Home" component={Home} />
-      <TabBar.Screen name="Appointments" component={Appointments} />
+      <TabBar.Screen name="Appointments" component={AppointmentStack} />
       <TabBar.Screen name="Documents" component={Documents} />
       <TabBar.Screen name="Profile" component={Profile} />
     </TabBar.Navigator>
