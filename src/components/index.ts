@@ -5,6 +5,10 @@ import Symptoms from './Symptoms';
 import DocSliderHeader from './DocSliderHeader';
 import DocList from './DocList';
 import TopDoc from './TopDoc';
+import AppointmentModal from './AppointmentModal';
+import ScreenHeader from './ScreenHeader';
+import AppointmentDoctorDetailCard from './AppointmentDoctorDetailCard';
+import DoctorReviewCard from './DoctorReviewCard';
 
 export {
   CategoryIcon,
@@ -14,4 +18,8 @@ export {
   DocSliderHeader,
   DocList,
   TopDoc,
+  AppointmentModal,
+  ScreenHeader,
+  AppointmentDoctorDetailCard,
+  DoctorReviewCard,
 };

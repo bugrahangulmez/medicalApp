@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
 import docReducer from './features/docSlice';
+import modalReducer from './features/modalSlice';
 
 export const store = configureStore({
   reducer: {
     doctor: docReducer,
+    modal: modalReducer,
   },
 });
 

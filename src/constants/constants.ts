@@ -9,6 +9,8 @@ export const COLORS = {
   WHITE: '#FFFF',
   TEXT_GREY: '#878787',
   SECOND_GREY: '#A0A6B1',
+  THIRD_GREY: '#EDEDED',
+  SHADOW: '#222222',
 };
 
 export const FONTS = {

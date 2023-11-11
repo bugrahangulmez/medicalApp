@@ -4,4 +4,5 @@ interface Doctor {
   hospital: string;
   star: number;
   image: ImageProps;
+  reviews?: number;
 }
