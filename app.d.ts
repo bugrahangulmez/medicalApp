@@ -5,4 +5,5 @@ interface Doctor {
   star: number;
   image: ImageProps;
   reviews?: number;
+  description?: string;
 }
