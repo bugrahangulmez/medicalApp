@@ -6,6 +6,7 @@ import {useState} from 'react';
 import ReduxProvider from './redux/Provider';
 
 const App = () => {
+  // App Router
   const [status, setStatus] = useState<'active' | 'done'>('active');
   return (
     <NavigationContainer>
